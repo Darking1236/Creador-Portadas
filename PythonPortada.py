@@ -56,8 +56,8 @@ def readData(data):
     if len(data) < 5:
       print('La cantidad de parametros enviados no cumplen con lo minimo')
     else:
-        template = DocxTemplate(
-            r'D:\dany1\Documents\octavoSemestre\PortadaTecnologico.docx')
+        templatefile=r'Aqui va la ruta del template'
+        template = DocxTemplate(templatefile)
         now = datetime.now()
         logTime = getDate(now)
         text = {
@@ -70,7 +70,7 @@ def readData(data):
             'Fecha': logTime
         }
         createFolder(data[1])
-        newFile = r'D:\dany1\Documents\octavoSemestre\{0}\{1}-{2}.docx'.format(
+        newFile = r'Aqui va el archivo nuevo nombre\{0}\{1}-{2}.docx'.format(
             data[1], data[4], data[0])
 
         template.render(text)
@@ -79,7 +79,7 @@ def readData(data):
             res = input()
             if int(res) == 1:
                 daate = datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
-                newFileDoc = r'D:\dany1\Documents\octavoSemestre\{0}\{1}-{2}-{3}.docx'.format(
+                newFileDoc = r'Aqui va el archivo nuevo nombre\{0}\{1}-{2}-{3}.docx'.format(
                     data[1], data[4], data[0], daate)
                 template.save(newFileDoc)
             else:
